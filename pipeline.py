@@ -207,11 +207,11 @@ print("\n\nFinished training.")
 Step 5: Storing results
 """
 data = vars(FLAGS)
-data["train_loss"]: train_loss_list
-data["train_acc"]: train_acc_list
-data["test_acc"]: test_acc_list
-data["test_classification"]: test_classification_list
-data["learning_rate"]: learning_rate_list
+data["train_loss"] = train_loss_list
+data["train_acc"] = train_acc_list
+data["test_acc"] = test_acc_list
+data["test_classification"] = test_classification_list
+data["learning_rate"] = learning_rate_list
 
 if not os.path.exists("results"):
     os.makedirs("results")
