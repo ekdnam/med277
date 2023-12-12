@@ -38,7 +38,7 @@ print("Finished parsing arguments.")
 Step 1: Preparing data
 """
 
-train_df, test_df = pd.read_csv('ekdnam_train.csv'), pd.read_csv('ekdnam_test.csv')
+train_df, test_df = pd.read_csv('data/ekdnam_train_new.csv'), pd.read_csv('data/ekdnam_test_new.csv')
 
 # Droping nan values
 train_df.dropna(inplace = True)
@@ -47,14 +47,15 @@ test_df.dropna(inplace = True)
 pattern1 = r'\n\.|[\n#]|_' #remove \n., \n, #, _
 pattern2 = r'\s+' #repace multiple whitespaces with just one
 
-train_df['X'] = train_df['X'].str.replace(pattern1, '', regex=True)
+train_df['X'] = train_df['X'].str.replace(pattern1, ' ', regex=True)
 train_df['X'] = train_df['X'].str.replace(pattern2, ' ', regex=True)
 train_df['X'] = train_df['X'].str.lower() #lowercasing all the data points
 
-test_df['X'] = test_df['X'].str.replace(pattern1, '', regex=True)
+test_df['X'] = test_df['X'].str.replace(pattern1, ' ', regex=True)
 test_df['X'] = test_df['X'].str.replace(pattern2, ' ', regex=True)
 test_df['X'] = test_df['X'].str.lower() #lowercasing all the data points
 
+print(f"Train shape: {train_df.shape} \t Test shape: {test_df.shape}")
 print("Finished processing data.")
 
 
